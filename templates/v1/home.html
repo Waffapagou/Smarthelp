@@ -1,0 +1,187 @@
+{% extends "v1/base.html" %}
+{% block title_name %} Home | SmartHelp{% endblock %}
+{% block content %}
+
+<!-- Dropzone -->
+{{ dropzone.load_css() }}
+{{ dropzone.style('border: 1px solid;') }}
+
+<header class="app-header fixed-top">	   	            
+    <div class="app-header-inner">  
+        <div class="container-fluid py-2">
+            <div class="app-header-content"> 
+                <div class="row justify-content-between align-items-center">
+                
+                <div class="col-auto">
+                    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+                    </a>
+                </div><!--//col-->
+
+                <div class="search-mobile-trigger d-sm-none col">
+                    <i class="search-mobile-trigger-icon fas fa-search"></i>
+                </div><!--//col-->
+                
+                <div class="app-search-box col"></div><!--//app-search-box-->
+                
+                <div class="app-utilities col-auto">
+                    <div class="app-utility-item app-notifications-dropdown dropdown">    
+                        					        
+                    </div><!--//app-utility-item-->
+                    <div class="app-utility-item">
+                        <a href="/LLM/setting" title="LLM Settings">
+                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+                                <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+                            </svg>
+                        </a>
+                    </div><!--//app-utility-item-->
+
+                </div><!--//app-utilities-->
+
+            </div><!--//row-->
+            </div><!--//app-header-content-->
+        </div><!--//container-fluid-->
+    </div><!--//app-header-inner-->
+
+    <div id="app-sidepanel" class="app-sidepanel"> 
+        <div id="sidepanel-drop" class="sidepanel-drop"></div>
+        <div class="sidepanel-inner d-flex flex-column">
+            <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+            <div class="app-branding">
+                <a class="app-logo" href="/home"><img class="logo-icon me-2" src="{{ url_for('static',filename='assets/images/app-logo.svg') }}" alt="logo"><span class="logo-text">SmartHelp</span></a>
+            </div><!--//app-branding-->  
+            
+            <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+
+                <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+
+                    <li class="nav-item">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link active" href="/home">
+
+                            <span class="nav-icon">
+                                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M21.4 7.5C22.2 8.3 22.2 9.6 21.4 10.3L18.6 13.1L10.8 5.3L13.6 2.5C14.4 1.7 15.7 1.7 16.4 2.5L18.2 4.3L21.2 1.3L22.6 2.7L19.6 5.7L21.4 7.5M15.6 13.3L14.2 11.9L11.4 14.7L9.3 12.6L12.1 9.8L10.7 8.4L7.9 11.2L6.4 9.8L3.6 12.6C2.8 13.4 2.8 14.7 3.6 15.4L5.4 17.2L1.4 21.2L2.8 22.6L6.8 18.6L8.6 20.4C9.4 21.2 10.7 21.2 11.4 20.4L14.2 17.6L12.8 16.2L15.6 13.3Z" />
+                                </svg>
+                             </span>
+
+                             <span class="nav-link-text">Chat</span>
+                        </a><!--//nav-link-->
+                    </li><!--//nav-item-->
+
+                    <li class="nav-item">
+                        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        <a class="nav-link" href="/file">
+
+                            <span class="nav-icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
+                                    <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
+                                </svg>
+                             </span>
+
+                             <span class="nav-link-text">Files</span>
+                        </a><!--//nav-link-->
+                    </li><!--//nav-item--> 
+
+                </ul><!--//app-menu-->
+
+            </nav><!--//app-nav-->
+
+            <div class="app-sidepanel-footer">
+                <nav class="app-nav app-nav-footer">
+                    <ul class="app-menu footer-menu list-unstyled">
+                        <li class="nav-item">
+                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                            <a class="nav-link" href="/setting">
+                                <span class="nav-icon">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+                                        <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-text">Settings</span>
+                            </a><!--//nav-link-->
+                        </li><!--//nav-item-->
+
+                        <li class="nav-item">
+                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                        </li><!--//nav-item-->
+                        <li class="nav-item">
+                            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                            <a class="nav-link" onclick="destroy_session()">
+                                <span class="nav-icon">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                        <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-text">Logout</span>
+                            </a><!--//nav-link-->
+                        </li><!--//nav-item-->
+                    </ul><!--//footer-menu-->
+                </nav>
+            </div><!--//app-sidepanel-footer-->
+           
+        </div><!--//sidepanel-inner-->
+    </div><!--//app-sidepanel-->
+</header><!--//app-header-->
+
+<div class="app-wrapper" style="height: 90vh;">
+	
+    <div class="app-content pt-3 p-md-3 p-lg-4" style="height: 100%;">
+        <div class="container-xl" style="height: 100%;">
+
+            <div class="row" style="height: 100%;">
+                <div class="col-12" style="height: 100%;">
+                
+                    <div class="card" style="height: 87vh; padding: 2%;">
+
+                        <div class="chat_conv" id="chat_conv_id" style="display: flex; flex: 10 ;flex-direction: column; overflow: auto;">
+                            <div class="chat_msg" id="chat_msg_id">
+
+                                <div class="chat_bubble_bot">
+                                    <p class="role_style">Assistant</p>
+                                    <p class="message_style">You can ask me anything you want about your process ...</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="chat_input" style="display: flex; flex: 1; align-items: center; justify-content: center;">
+
+                            <form style="width: 100%;" id="form_msg_input">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="input_msg_text" placeholder="Ask anything ..." aria-label="Text input" aria-describedby="send-button">
+                                    <button class="btn btn-primary" type="submit">Send</button>
+                                </div>
+                            </form>
+
+                        </div>    
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!--//container-fluid-->
+    </div><!--//app-content-->
+
+</div><!--//app-wrapper-->    
+
+<style>
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src= "{{ url_for('static',filename='js/chat.js') }}" ></script>
+<script src= "{{ url_for('static',filename='js/auth.js') }}" ></script>
+<link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+
+<!-- Flash dropzone -->
+{{ dropzone.load_js ()}}
+{{ dropzone.config() }}
+
+{% endblock %}
