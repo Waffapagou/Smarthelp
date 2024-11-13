@@ -1,0 +1,22 @@
+{
+    "toolName": "SmartHELP",
+    "version": "1.0.0",
+    "secret": "mySecret",
+    "database": {
+        "type": "mongoDB",
+        "host": "localhost",
+        "port": 27017,
+        "username": "admin",
+        "password": ""
+    },
+    "logging": {
+        "enabled": true,
+        "level": "info",
+        "file": "app.log"
+    },
+    "api": {
+        "baseUrl": "https://api.example.com",
+        "timeout": 5000,
+        "version" :"1.0.0"
+    }
+}

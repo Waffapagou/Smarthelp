@@ -1,0 +1,63 @@
+{
+    "app": {
+        "name": "SmartHelp", 
+        "version": {
+            "_comment": "Each version will be named after countries in alphabetical orders", 
+            "name": "Armenia", 
+            "code": 0.6, 
+            "states": "Developpement"
+            },
+        "logs" : {
+            "_comment" :"",
+            "log_file_names" : {
+                "mongo" : "Log/mongo.log",
+                "chroma" : "Log/chroma.log",
+                "app" : "Log/app.log" 
+            }
+        },
+        "security" : {
+            "jwt" : {
+                "secret_key" : ""
+            }
+        }
+    },
+    "api": {
+        "base_name": "/api/v1/SmartHelp/", 
+        "version": {
+            "name": "Auvergne-Rhone-Alpes", 
+            "code": 0.4, 
+            "states": "Developpement"
+        }
+    },
+    "database": {
+        "chromaDB": {
+            "directory_path": "App/Database/ChromaDB", 
+            "name": "chroma.sqlite3", 
+            "number_of_result": 5, 
+            "collection": {
+                "name": "SmartHelp", 
+                "embeding": "embedding_functions.DefaultEmbeddingFunction()"
+                }
+            },
+        "mongoDB" : {
+            "database" : {
+                "name" : "SmartHelp"
+            }
+        }
+    }, 
+    "llm": {
+        "type": "mistral", 
+        "path": "App/Models/mistral_7b.gguf", 
+        "configuration": {
+            "context_length": 1600, 
+            "gpu_layers": 18, 
+            "max_new_tokens": 650
+        }, 
+    "splitter": {
+        "separator": "\n", 
+        "chunk_size": 1028, 
+        "chunk_overlap": 528, 
+        "is_separator_regex": false
+        }
+    }
+}

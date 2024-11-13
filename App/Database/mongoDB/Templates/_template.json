@@ -1,0 +1,21 @@
+{
+    "__comment" : "This is a sample user object",
+    "_id": "1234567890",
+    "user_token": "user_token_here",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "pwd": "hashed_password_here",
+    "jwt" : {
+        "token": "jwt_token_here",
+        "expires": "2022-01-02T12:00:00Z"
+    },
+    "role":{
+        "type": "user",
+        "status": "active"
+    },
+    "createdAt": "2022-01-01T12:00:00Z",
+    "status": {
+        "type": "active",
+        "reason": "user created"
+    }
+}

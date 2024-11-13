@@ -1,0 +1,7 @@
+{
+    "user_token" : "user_token",
+    "prompt" : "prompt",
+    "lmm" : {
+        "name" : "mistral"
+    }
+}
