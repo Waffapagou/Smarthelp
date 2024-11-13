@@ -1,0 +1,13 @@
+.chat_bubble_bot {
+    margin-bottom: 10px;
+}
+
+.role_style {
+    margin: 0;
+    font-size: small;
+}
+
+.message_style {
+    font-size: medium;
+    color: black;
+}

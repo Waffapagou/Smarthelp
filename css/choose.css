@@ -1,0 +1,19 @@
+.files_menu {
+    height: 100%;
+    width: 180px;
+    background-color: #f8f9fa;
+}
+.dashboard_overall {
+    height: 93.3vh;
+    width: 98vw;
+}
+.button_div {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.card {
+    padding : auto;
+}

@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding : 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display:flex
+}
+
+.component_bar {
+
+    width: 250px;
+    height: 100%;
+    overflow: scroll;
+    border-top-right-radius: 5;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.workflow {
+    background-color: lightgray;
+    width: 100%;
+    margin: 5px;
+    position: relative
+}
+
+.control_file {
+    border-color: red;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.control_filter {
+    border-color: red;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.control_convert {
+    border-color: green;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.control_saves {
+    border-color: green;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.control_repport {
+    border-color: red;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.component_bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.component_bar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.custom-menu {
+    z-index: 1000;
+    position: absolute;
+    background-color: #C0C0C0;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.jtk-connector {
+    z-index: 4;
+}
+
+.jtk-endpoint {
+    z-index: 5;
+}
+
+.jtk-overlay {
+    z-index: 6;
+}
